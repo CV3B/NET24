@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET24", "NET24\NET24.csproj", "{D5BA9F09-775D-46FC-838F-B9CCEF66C521}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{B3284E4B-196F-4406-B7A7-9090028266E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataFromFile", "MetadataFromFile\MetadataFromFile.csproj", "{649090F1-0512-4FA7-A353-4B111DD42C93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labbar", "Labbar", "{EBB5E7C8-0429-4B92-A78E-EDB4E93CAB2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5BA9F09-775D-46FC-838F-B9CCEF66C521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BA9F09-775D-46FC-838F-B9CCEF66C521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BA9F09-775D-46FC-838F-B9CCEF66C521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BA9F09-775D-46FC-838F-B9CCEF66C521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649090F1-0512-4FA7-A353-4B111DD42C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649090F1-0512-4FA7-A353-4B111DD42C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649090F1-0512-4FA7-A353-4B111DD42C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649090F1-0512-4FA7-A353-4B111DD42C93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{649090F1-0512-4FA7-A353-4B111DD42C93} = {B3284E4B-196F-4406-B7A7-9090028266E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0561F0D4-E43D-4AC7-87A4-EE9CF0BD9852}
+	EndGlobalSection
+EndGlobal
