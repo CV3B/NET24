@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataFromFile", "Metadat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Labbar", "Labbar", "{EBB5E7C8-0429-4B92-A78E-EDB4E93CAB2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{F111E72A-7D2D-4A39-A44C-95909590F41E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,17 @@ Global
 		{649090F1-0512-4FA7-A353-4B111DD42C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{649090F1-0512-4FA7-A353-4B111DD42C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{649090F1-0512-4FA7-A353-4B111DD42C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F111E72A-7D2D-4A39-A44C-95909590F41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F111E72A-7D2D-4A39-A44C-95909590F41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F111E72A-7D2D-4A39-A44C-95909590F41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F111E72A-7D2D-4A39-A44C-95909590F41E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{649090F1-0512-4FA7-A353-4B111DD42C93} = {B3284E4B-196F-4406-B7A7-9090028266E1}
+		{F111E72A-7D2D-4A39-A44C-95909590F41E} = {B3284E4B-196F-4406-B7A7-9090028266E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0561F0D4-E43D-4AC7-87A4-EE9CF0BD9852}
