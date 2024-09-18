@@ -42,13 +42,31 @@ Console.WriteLine($"{p1.GetFullName()} | {p2.GetFullName()}" );
 Console.WriteLine($"{p1.GetFullNameReversed()} | {p2.GetFullNameReversed()}");
 Console.WriteLine($"{p1.GetFullName("Mr.")} | {p2.GetFullName("Mr.")}");
 
-Person c = new Person() { firstName = "Calle", lastName = "Bjureblad", mom = { firstName = "Sofie", lastName = "Bjureblad" }, dad = { firstName = "Magnus", lastName = "Bjureblad" } };
-Console.WriteLine(c.mom.GetFullName());
+Person c = new Person() { firstName = "Calle", lastName = "Bjureblad" };
+Person m = new Person() { firstName = "Mamma", lastName = "Efternamn" };
+Person d = new Person();
+
+c.mom = m;
+c.dad = d;
+
+Console.WriteLine(c.GetSelfAndParents());
+
+c.SetLength(1.80);
+Console.WriteLine(c.GetLength());
+
+c.SetWeight(1000);
+Console.WriteLine(c.GetWeight());
+
+Console.WriteLine(c.GetBMI());
+
 
 class Person
 {
     public string firstName;
     public string lastName;
+
+    private double lenght;
+    private double weight;
 
     public Person mom;
     public Person dad;
@@ -63,6 +81,40 @@ class Person
         Array.Reverse(nameArray);
 
         return new string(nameArray);
+    }
+
+    public string GetSelfAndParents()
+    {
+        string mother = mom.GetFullName() != " " ? mom.GetFullName() : "okänd";
+        string father = dad.GetFullName() != " " ? dad.GetFullName() : "okänd";
+
+        return $"{this.GetFullName()} - {mother} - {father}";
+
+    }
+
+    public void SetLength(double length)
+    {
+        this.lenght = length;
+    }
+
+    public double GetLength()
+    {
+        return this.lenght;
+    }
+
+    public void SetWeight(double weight)
+    {
+        this.weight = weight;
+    }
+
+    public double GetWeight()
+    {
+        return this.weight;
+    }
+
+    public double GetBMI()
+    {
+        return this.weight / Math.Pow(this.lenght, 2);
     }
 }
 
