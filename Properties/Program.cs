@@ -50,12 +50,148 @@
  * Båda ska vara en double och kunna ha ett värde mellan 0.0 och 100.0
  * men de ska vara “sammankopplade” på så vis att värdena tillsammans alltid är 100.0
  * d.v.s om man t.ex. sätter “Blue” till 8.5 och sedan läser av “Red” så ska den returnera 91.5
+ * 
+ * 8
+ * Skriv en ny klass som representerar en bil. Varje bil ska kunna ha en färg som representeras av en ConsoleColor,
+ * samt en längd. När man instansierar en bil så ska den få en random färg, och en random längd (mellan 3 och 5 meter).
+ * Instansiera 1000 bilar och spara i en array. Skapa en funktion som tar en array av bilar och returnerar den sammanlagda längden av alla gröna bilar.
+ * 
+ * 9
+ * Lägg till en statisk metod på klassen i uppgift 8.
+ * Metoden ska ta en bil som inparameter och returnera en array med 10 bilar i samma färg som bilen man skickat in, men med olika längd.
+ * 
+ *
  */
+
+using System;
+
+Car[] cars = new Car[10];
+
+for (int i = 0; i < cars.Length; i++)
+{
+    cars[i] = new Car();
+}
+
+bool raceIsOngoing = true;
+while (raceIsOngoing)
+{
+    //raceIsOngoing = false;
+
+    Console.Clear();
+
+    for (int i = 0; i < cars.Length; i++)
+    {
+        if (cars[i].Distance >= 10000) raceIsOngoing = false;
+
+        Console.WriteLine($"Bil {i}: {cars[i].GetGraph()} {cars[i].Distance} km");
+        cars[i].DriveForOneHour();
+
+
+
+    }
+
+    Thread.Sleep(1000);
+}
+
+
+
+class Car
+{
+    static Random rnd = new Random();
+
+    Array colors = Enum.GetValues(typeof(ConsoleColor));
+
+    public ConsoleColor Color { get; set; }
+    public int Length { get; set; }
+    public int Speed { get; set; }
+
+    private int _distance = 0;
+    public int Distance { get { return _distance; } set { _distance = value; } }
+
+
+    public Car()
+    {
+        Color = (ConsoleColor)colors.GetValue(rnd.Next(colors.Length));
+        Length = rnd.Next(3, 5+1);
+        Speed = rnd.Next(60, 240 + 1);
+    }
+
+    public Car(ConsoleColor color)
+    {
+        Color = color;
+        Length = rnd.Next(3, 5 + 1);
+        Speed = rnd.Next(60, 240 + 1);
+    }
+
+    public static int AllGreenCars(Car[] cars)
+    {
+        int sumOfLenght = 0;
+
+        foreach (Car c in cars)
+        {
+            if (c.Color == ConsoleColor.Green)
+            {
+                sumOfLenght += c.Length; 
+            }
+            
+        }
+
+        return sumOfLenght;
+    }
+
+    public static Car[] DupTenCars(Car car)
+    {
+        Car[] cars = new Car[10];
+
+        for (int i = 0; i < 10; i++) 
+        {
+            cars[i] = new Car(car.Color);
+        }
+
+        return cars;
+    }
+
+    public void DriveForOneHour()
+    {
+        this.Distance += this.Speed;
+    }
+
+    public string GetGraph()
+    {
+        double oneStepPos = 10000/18;
+
+        string carPos = $"|x-----------------|";
+        char[] carPosArr = carPos.ToCharArray();
+
+        for (int i = 1; i <= 18; i++)
+        {
+
+            if (oneStepPos * (i) >= 10000 || this.Distance >= 10000) {return "|-----------------x|"; }
+            if (oneStepPos * (i) > this.Distance && this.Distance >= oneStepPos) 
+            {
+                carPosArr[1] = '-';
+                carPosArr[i] = 'x';
+                carPosArr[i-1] = '-';
+                return new string(carPosArr); 
+            }
+
+        }
+
+        return new string(carPosArr);
+
+    }
+}
+
+//enum EColors { Red, Green, Blue, }
+
 
 class Idk
 {
-    public double Red { get; set; }
-    public double Blue { get; set; }
+    private double _red;
+    private double _blue;
+
+    public double Red { get { return _red; } set { _red = value; _blue = 100 - value; } }
+    public double Blue { get { return _blue; } set { _blue = value; _red = 100 - value; } }
 }
 
 class WaterGlass
@@ -76,7 +212,7 @@ class WaterGlass
 }
 
 
-class Car
+class Car2
 {
     private string _model;
     private string _color;
@@ -86,9 +222,9 @@ class Car
     public string Color { get { return _color; } set { _color = value; } }
     public int Price { get { return _price; } set { _price = value; } }
 
-    public Car() { }
+    public Car2() { }
 
-    public Car(string model, string color, int price)
+    public Car2(string model, string color, int price)
     {
         _model = model;
         _color = color;
