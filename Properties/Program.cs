@@ -105,8 +105,8 @@ class Car
     public int Length { get; set; }
     public int Speed { get; set; }
 
-    private int _distance = 0;
-    public int Distance { get { return _distance; } set { _distance = value; } }
+    private double _distance = 0;
+    public double Distance { get { return _distance; } set { _distance = value; } }
 
 
     public Car()
@@ -153,36 +153,29 @@ class Car
 
     public void DriveForOneHour()
     {
-        this.Distance += this.Speed;
+        Distance += Speed;
     }
 
     public string GetGraph()
     {
-        double oneStepPos = 10000/18;
+        int totalDis = 10000;
+        int carPos = (int)(Distance / totalDis * 18);
 
-        string carPos = $"|x-----------------|";
-        char[] carPosArr = carPos.ToCharArray();
+        char[] graph = new char[18];
 
-        for (int i = 1; i <= 18; i++)
+        for (int i = 0; i < 18; i++)
         {
-
-            if (oneStepPos * (i) >= 10000 || this.Distance >= 10000) {return "|-----------------x|"; }
-            if (oneStepPos * (i) > this.Distance && this.Distance >= oneStepPos) 
-            {
-                carPosArr[1] = '-';
-                carPosArr[i] = 'x';
-                carPosArr[i-1] = '-';
-                return new string(carPosArr); 
-            }
-
+            graph[i] = '-';
         }
 
-        return new string(carPosArr);
+        if (carPos >= 0 && carPos < 18) 
+        {
+            graph[carPos] = 'x';
+        }
 
+        return $"|{new string(graph)}|";
     }
 }
-
-//enum EColors { Red, Green, Blue, }
 
 
 class Idk
